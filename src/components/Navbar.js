@@ -11,7 +11,7 @@ function Navbar({ setDarkMode, darkMode }) {
         <Toolbar>
           <LibraryBooksIcon sx={{ mr: 2 }} />
           <Typography sx={{ flexGrow: 1 }} variant="h6">
-            Project Library
+            Pirates Are Always Hungry
           </Typography>
           <Switch
             color="secondary"
