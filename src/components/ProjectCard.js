@@ -1,11 +1,12 @@
 import React from "react";
-import { Divider, Grid } from "@mui/material";
+import { Box, Chip, Divider, Grid } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Container } from "@mui/system";
 
 function ProjectCard(name) {
   return (
@@ -35,27 +36,35 @@ function ProjectCard(name) {
 function ProjectCards() {
   return (
     <div>
-      <Divider />
-      <Grid
-        container
-        spacing={2}
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item xs={2}>
-          <ProjectCard name={"test"} />
-        </Grid>
-        <Grid item xs={2}>
-          <ProjectCard />
-        </Grid>
-        <Grid item xs={2}>
-          <ProjectCard />
-        </Grid>
-        <Grid item xs={2}>
-          <ProjectCard />
-        </Grid>
-      </Grid>
+      <Box sx={{ pt: 0, pb: 6 }}>
+        <Container maxWidth="lg">
+          {/* I&A */}
+          <Divider textAlign="left" flexItem sx={{ pt: 4, pb: 4 }}>
+            <Chip label="I&A Projects" />
+          </Divider>
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              <ProjectCard />
+            </Grid>
+            <Grid item xs={3}>
+              <ProjectCard />
+            </Grid>
+            <Grid item xs={3}>
+              <ProjectCard />
+            </Grid>
+            <Grid item xs={3}>
+              <ProjectCard />
+            </Grid>
+          </Grid>
+          {/* DHS */}
+          <Divider textAlign="left" flexItem sx={{ pt: 4, pb: 4 }}>
+            <Chip label="DHS Projects" />
+          </Divider>
+          <Grid item xs={4}>
+            <ProjectCard />
+          </Grid>
+        </Container>
+      </Box>
     </div>
   );
 }
