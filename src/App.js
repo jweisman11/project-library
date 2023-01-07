@@ -5,8 +5,13 @@ import { createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
 import Navbar from "./components/Navbar";
 import IntroMessage from "./components/IntroMessage";
 import SideBarTOC from "./components/SideBarTOC";
-import ProjectCard from "./components/ProjectCard";
+import ContactUsForm from "./components/ContactUsForm";
+import Home from "./components/Home";
+
 import Footer from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
+import { Css } from "@mui/icons-material";
+import ProjectLibrary from "./components/ProjectLibrary";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,14 +25,23 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* <Paper> */}
       <Navbar setDarkMode={setDarkMode} darkMode={darkMode} />
-      <SideBarTOC />
-      <IntroMessage />
-      <ProjectCard />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/projects" element={<ProjectLibrary />}></Route>
+        <Route path="/team" element={<ProjectLibrary />}></Route>
+        <Route path="/dashboard" element={<ProjectLibrary />}></Route>
+        <Route path="/contact" element={<ContactUsForm />}></Route>
+        <Route path="/*" element={<Home />}></Route>
+      </Routes>
       <Footer />
-      {/* </Paper> */}
     </ThemeProvider>
+
+    //   <Home />
+    //   <IntroMessage />
+    //   <ProjectCard />
+    //   <Footer />
+    // </ThemeProvider>
   );
 }
 

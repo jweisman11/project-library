@@ -1,28 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Chip, Divider, Grid } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+// import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 
-function ProjectCard(name) {
+function ProjectCard({ projectName, projectDescription }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
+    <Card>
+      {/* <CardMedia
         sx={{ height: 140 }}
         image="/static/images/cards/contemplative-reptile.jpg"
         title="green iguana"
-      />
+      /> */}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {`${name}`}
+          {`${projectName}`}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {`${projectDescription}`}
         </Typography>
       </CardContent>
       <CardActions>
@@ -34,38 +33,63 @@ function ProjectCard(name) {
 }
 
 function ProjectCards() {
+  const [data, setData] = useState([]);
+
+  const getData = () => {
+    fetch("data.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log(myJson);
+        setData(myJson);
+      });
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div>
-      <Box sx={{ pt: 0, pb: 6 }}>
-        <Container maxWidth="lg">
-          {/* I&A */}
-          <Divider textAlign="left" flexItem sx={{ pt: 4, pb: 4 }}>
-            <Chip label="I&A Projects" />
-          </Divider>
-          <Grid container spacing={2}>
-            <Grid item xs={3}>
-              <ProjectCard />
+    <Box sx={{ pt: 0, pb: 6 }}>
+      <Container maxWidth="lg">
+        {/* I&A */}
+        <Divider textAlign="left" flexItem sx={{ pt: 4, pb: 4 }}>
+          <Chip label="I&A Projects" />
+        </Divider>
+
+        <Grid container spacing={4}>
+          {data.map((project) => (
+            <Grid item key={project.project_id} xs={12} sm={6} md={4}>
+              <ProjectCard
+                projectName={project.project_info.name}
+                projectDescription={project.project_info.description}
+              />
             </Grid>
-            <Grid item xs={3}>
-              <ProjectCard />
+          ))}
+        </Grid>
+
+        {/* DHS */}
+        <Divider textAlign="left" flexItem sx={{ pt: 4, pb: 4 }}>
+          <Chip label="DHS Projects" />
+        </Divider>
+        <Grid container spacing={4}>
+          {data.map((project) => (
+            <Grid item key={project.project_id} xs={12} sm={6} md={4}>
+              <ProjectCard
+                projectName={project.project_info.name}
+                projectDescription={project.project_info.description}
+              />
             </Grid>
-            <Grid item xs={3}>
-              <ProjectCard />
-            </Grid>
-            <Grid item xs={3}>
-              <ProjectCard />
-            </Grid>
-          </Grid>
-          {/* DHS */}
-          <Divider textAlign="left" flexItem sx={{ pt: 4, pb: 4 }}>
-            <Chip label="DHS Projects" />
-          </Divider>
-          <Grid item xs={4}>
-            <ProjectCard />
-          </Grid>
-        </Container>
-      </Box>
-    </div>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }
 

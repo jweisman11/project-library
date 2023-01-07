@@ -1,0 +1,56 @@
+[
+  {
+    "project_id": 1,
+    "project_info": {
+      "category": "i&a",
+      "name": "apple",
+      "start_date": "01-01-2023",
+      "description": "This project is cool!"
+    }
+  },
+  {
+    "project_id": 2,
+    "project_info": {
+      "category": "i&a",
+      "name": "banana",
+      "start_date": "01-01-2023",
+      "description": "This project is cool!"
+    }
+  },
+  {
+    "project_id": 3,
+    "project_info": {
+      "category": "i&a",
+      "name": "pear",
+      "start_date": "01-01-2023",
+      "description": "This project is cool!"
+    }
+  },
+  {
+    "project_id": 4,
+    "project_info": {
+      "category": "dhs",
+      "name": "strawberry",
+      "start_date": "01-01-2023",
+      "description": "This project is cool!"
+    }
+  },
+  {
+    "project_id": 5,
+    "project_info": {
+      "category": "dhs",
+      "name": "pineapple",
+      "start_date": "01-01-2023",
+      "description": "This project is cool!"
+    }
+  },
+  {
+    "project_id": 6,
+    "project_info": {
+      "category": "dhs",
+      "name": "grape",
+      "start_date": "01-01-2023",
+      "description": "This project is cool!"
+    }
+  }
+]

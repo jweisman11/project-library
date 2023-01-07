@@ -3,7 +3,7 @@ import React from "react";
 
 function IntroMessage() {
   return (
-    <Box sx={{ pt: 0, pb: 6 }}>
+    <Box sx={{ pt: 2, pb: 6 }}>
       <Container maxWidth="lg">
         <Typography
           component="h1"
