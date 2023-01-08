@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Box, Chip, Divider, Grid } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -7,8 +8,23 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
+import Modal from "@mui/material/Modal";
+
+const modalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 800,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 function ProjectCard({ projectName, projectDescription }) {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <Card>
       {/* <CardMedia
@@ -25,7 +41,25 @@ function ProjectCard({ projectName, projectDescription }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Open</Button>
+        <Button onClick={() => setOpenModal(true)} size="small">
+          Open
+        </Button>
+        <Modal open={openModal} onClose={() => setOpenModal(false)}>
+          <Box sx={modalStyle}>
+            <Typography
+              id={`${projectName}-modal`}
+              variant="h6"
+              component="h2"
+            >{`${projectName}`}</Typography>
+            <Typography id={`${projectName}-modal-text`} sx={{ mt: 2 }}>
+              Some longer description
+            </Typography>
+            <Button variant="contained" onClick={() => setOpenModal(false)}>
+              Close
+            </Button>
+          </Box>
+        </Modal>
+
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
@@ -43,11 +77,9 @@ function ProjectCards() {
       },
     })
       .then(function (response) {
-        console.log(response);
         return response.json();
       })
       .then(function (myJson) {
-        console.log(myJson);
         setData(myJson);
       });
   };

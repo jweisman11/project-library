@@ -4,6 +4,7 @@
     "project_info": {
       "category": "i&a",
       "name": "apple",
+      "acronym": "a",
       "start_date": "01-01-2023",
       "description": "This project is cool!"
     }
@@ -13,6 +14,7 @@
     "project_info": {
       "category": "i&a",
       "name": "banana",
+      "acronym": "b",
       "start_date": "01-01-2023",
       "description": "This project is cool!"
     }
@@ -22,6 +24,7 @@
     "project_info": {
       "category": "i&a",
       "name": "pear",
+      "acronym": "p",
       "start_date": "01-01-2023",
       "description": "This project is cool!"
     }
@@ -31,6 +34,7 @@
     "project_info": {
       "category": "dhs",
       "name": "strawberry",
+      "acronym": "s",
       "start_date": "01-01-2023",
       "description": "This project is cool!"
     }
@@ -40,6 +44,7 @@
     "project_info": {
       "category": "dhs",
       "name": "pineapple",
+      "acronym": "pn",
       "start_date": "01-01-2023",
       "description": "This project is cool!"
     }
@@ -49,6 +54,7 @@
     "project_info": {
       "category": "dhs",
       "name": "grape",
+      "acronym": "gp",
       "start_date": "01-01-2023",
       "description": "This project is cool!"
     }

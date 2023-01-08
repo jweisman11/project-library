@@ -5,6 +5,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import FormInputText from "./form-components/FormInputText";
 
+// https://blog.logrocket.com/using-material-ui-with-react-hook-form/
+
 function ContactUs() {
   const { handleSubmit, reset, control } = useForm();
   const onSubmit = (data) => console.log(data);
