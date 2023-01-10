@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import { List, ListItem, ListItemText, Stack } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 

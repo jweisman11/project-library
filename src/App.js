@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
+import { Route, Routes } from "react-router-dom";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+
 import "./App.css";
-import { createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
 import Navbar from "./components/Navbar";
-import IntroMessage from "./components/IntroMessage";
-import SideBarTOC from "./components/SideBarTOC";
 import ContactUsForm from "./components/ContactUsForm";
 import Dashboard from "./components/Dashboard";
 import Error from "./components/Page404";
-
 import Home from "./components/Home";
-
 import Footer from "./components/Footer";
-import { Route, Routes } from "react-router-dom";
 import ProjectLibrary from "./components/ProjectLibrary";
+import Team from "./components/Team";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,19 +28,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/projects" element={<ProjectLibrary />}></Route>
-        <Route path="/team" element={<ProjectLibrary />}></Route>
+        <Route path="/team" element={<Team />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/contact" element={<ContactUsForm />}></Route>
         <Route path="/*" element={<Error />}></Route>
       </Routes>
       <Footer />
     </ThemeProvider>
-
-    //   <Home />
-    //   <IntroMessage />
-    //   <ProjectCard />
-    //   <Footer />
-    // </ThemeProvider>
   );
 }
 

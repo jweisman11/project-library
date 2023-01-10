@@ -1,20 +1,16 @@
-import {
-  AppBar,
-  Button,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Switch from "@mui/material/Switch";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
-const pages = ["Home", "Projects", "Team"];
-
 function Navbar({ setDarkMode, darkMode }) {
+  // TODO: Avoid code reptition and use to set active vs inactive styles
+  // let activeStyle = {
+  //   textDecoration: "underline",
+  // };
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -36,30 +32,65 @@ function Navbar({ setDarkMode, darkMode }) {
             width: "50%",
           }}
         >
-          {/* {pages.map((page) => {
-            return (
-              <Typography sx={{ mr: 4 }} variant="h6">
-                <NavLink to={`/${page}`}>{page}</NavLink>
-              </Typography>
-            );
-          })} */}
-
           <Typography sx={{ mr: 4 }} variant="h6">
-            <NavLink style={{ textDecoration: "none" }} to={"/"}>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "orange" : "white",
+                textDecoration: isActive ? "underline" : "none",
+                "font-weight": isActive ? "bold" : "normal",
+              })}
+              to={"/"}
+            >
               Home
             </NavLink>
           </Typography>
           <Typography sx={{ mr: 4 }} variant="h6">
-            <NavLink to={"/projects"}>Projects</NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "orange" : "white",
+                textDecoration: isActive ? "underline" : "none",
+                "font-weight": isActive ? "bold" : "normal",
+              })}
+              to={"/projects"}
+            >
+              Projects
+            </NavLink>
           </Typography>
           <Typography sx={{ mr: 4 }} variant="h6">
-            <NavLink to={"/team"}>Team</NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "orange" : "white",
+                textDecoration: isActive ? "underline" : "none",
+                "font-weight": isActive ? "bold" : "normal",
+              })}
+              to={"/team"}
+            >
+              Team
+            </NavLink>
           </Typography>
           <Typography sx={{ mr: 4 }} variant="h6">
-            <NavLink to={"/dashboard"}>Dashboard</NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "orange" : "white",
+                textDecoration: isActive ? "underline" : "none",
+                "font-weight": isActive ? "bold" : "normal",
+              })}
+              to={"/dashboard"}
+            >
+              Dashboard
+            </NavLink>
           </Typography>
           <Typography sx={{ mr: 4 }} variant="h6">
-            <NavLink to={"/contact"}>Contact Us</NavLink>
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "orange" : "white",
+                textDecoration: isActive ? "underline" : "none",
+                "font-weight": isActive ? "bold" : "normal",
+              })}
+              to={"/contact"}
+            >
+              Contact Us
+            </NavLink>
           </Typography>
 
           <Switch

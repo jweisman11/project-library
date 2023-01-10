@@ -1,14 +1,18 @@
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
-import TextField from "@mui/material/TextField";
 import { Container } from "@mui/system";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { FormInputMultiCheckbox } from "./form-components/FormCheckbox";
 import FormInputText from "./form-components/FormInputText";
+import FormInputSlider from "./form-components/FormSlider";
+import FormInputDropdown from "./form-components/FormInputDropdown";
 
 // https://blog.logrocket.com/using-material-ui-with-react-hook-form/
 
 function ContactUs() {
-  const { handleSubmit, reset, control } = useForm();
+  const methods = useForm();
+  const { handleSubmit, control, setValue } = methods;
+
   const onSubmit = (data) => console.log(data);
 
   return (
@@ -92,6 +96,28 @@ function ContactUs() {
                     autoComplete="email"
                   />
                 </Grid>
+                <Grid item key="project" xs={12}>
+                  <FormInputDropdown
+                    name="project"
+                    control={control}
+                    label="Project"
+                  />
+                </Grid>
+
+                <Grid item key="about" xs={12}>
+                  <FormInputMultiCheckbox
+                    control={control}
+                    setValue={setValue}
+                    name={"checkboxValue"}
+                    label={"What's this about?"}
+                  />
+                </Grid>
+                {/* <FormInputSlider
+                  name={"sliderValue"}
+                  control={control}
+                  setValue={setValue}
+                  label={"How urgent is this?"}
+                /> */}
                 <Grid item key="message" xs={12}>
                   <FormInputText
                     name="message"
