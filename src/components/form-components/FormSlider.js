@@ -18,7 +18,11 @@ export const FormInputSlider = ({ name, control, setValue, label }) => {
       name={name}
       control={control}
       render={({ field, fieldState, formState }) => (
-        <Slider value={sliderValue} onChange={handleChange} />
+        <Slider
+          value={sliderValue}
+          onChange={handleChange}
+          marks={["urgent", "not urgent"]}
+        />
       )}
     />
   );

@@ -112,12 +112,16 @@ function ContactUs() {
                     label={"What's this about?"}
                   />
                 </Grid>
-                {/* <FormInputSlider
-                  name={"sliderValue"}
-                  control={control}
-                  setValue={setValue}
-                  label={"How urgent is this?"}
-                /> */}
+                <Grid item key="urgency" xs>
+                  <Typography>How urgent is this?</Typography>
+
+                  <FormInputSlider
+                    name={"sliderValue"}
+                    control={control}
+                    setValue={setValue}
+                    label={"How urgent is this?"}
+                  />
+                </Grid>
                 <Grid item key="message" xs={12}>
                   <FormInputText
                     name="message"
