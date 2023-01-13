@@ -2,10 +2,13 @@ import { AppBar, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Switch from "@mui/material/Switch";
 import { NavLink } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import AuthContext from "../store/AuthContext";
 
-function Navbar({ setDarkMode, darkMode }) {
+function Navbar({ darkMode, setDarkMode }) {
+  const authCtx = useContext(AuthContext);
+
   // TODO: Avoid code reptition and use to set active vs inactive styles
   // let activeStyle = {
   //   textDecoration: "underline",
@@ -37,7 +40,7 @@ function Navbar({ setDarkMode, darkMode }) {
               style={({ isActive }) => ({
                 color: isActive ? "orange" : "white",
                 textDecoration: isActive ? "underline" : "none",
-                "font-weight": isActive ? "bold" : "normal",
+                fontWeight: isActive ? "bold" : "normal",
               })}
               to={"/"}
             >
@@ -49,7 +52,7 @@ function Navbar({ setDarkMode, darkMode }) {
               style={({ isActive }) => ({
                 color: isActive ? "orange" : "white",
                 textDecoration: isActive ? "underline" : "none",
-                "font-weight": isActive ? "bold" : "normal",
+                fontWeight: isActive ? "bold" : "normal",
               })}
               to={"/projects"}
             >
@@ -61,7 +64,7 @@ function Navbar({ setDarkMode, darkMode }) {
               style={({ isActive }) => ({
                 color: isActive ? "orange" : "white",
                 textDecoration: isActive ? "underline" : "none",
-                "font-weight": isActive ? "bold" : "normal",
+                fontWeight: isActive ? "bold" : "normal",
               })}
               to={"/team"}
             >
@@ -73,7 +76,7 @@ function Navbar({ setDarkMode, darkMode }) {
               style={({ isActive }) => ({
                 color: isActive ? "orange" : "white",
                 textDecoration: isActive ? "underline" : "none",
-                "font-weight": isActive ? "bold" : "normal",
+                fontWeight: isActive ? "bold" : "normal",
               })}
               to={"/dashboard"}
             >
@@ -85,13 +88,29 @@ function Navbar({ setDarkMode, darkMode }) {
               style={({ isActive }) => ({
                 color: isActive ? "orange" : "white",
                 textDecoration: isActive ? "underline" : "none",
-                "font-weight": isActive ? "bold" : "normal",
+                fontWeight: isActive ? "bold" : "normal",
               })}
               to={"/contact"}
             >
               Contact Us
             </NavLink>
           </Typography>
+          {/* <Typography
+            sx={{ mr: 4 }}
+            variant="h6"
+            onClick={() => authCtx.keycloak.logout()}
+          >
+            <NavLink
+              style={({ isActive }) => ({
+                color: isActive ? "orange" : "white",
+                textDecoration: isActive ? "underline" : "none",
+                fontWeight: isActive ? "bold" : "normal",
+              })}
+              to={"/login"}
+            >
+              Logout
+            </NavLink>
+          </Typography> */}
 
           <Switch
             color="secondary"
