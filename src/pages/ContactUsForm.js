@@ -2,10 +2,10 @@ import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FormInputMultiCheckbox } from "./form-components/FormCheckbox";
-import FormInputText from "./form-components/FormInputText";
-import FormInputSlider from "./form-components/FormSlider";
-import FormInputDropdown from "./form-components/FormInputDropdown";
+import { FormInputMultiCheckbox } from "../components/form-components/FormCheckbox";
+import FormInputText from "../components/form-components/FormInputText";
+import FormInputSlider from "../components/form-components/FormSlider";
+import FormInputDropdown from "../components/form-components/FormInputDropdown";
 
 // https://blog.logrocket.com/using-material-ui-with-react-hook-form/
 

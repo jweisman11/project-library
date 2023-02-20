@@ -1,6 +1,6 @@
 import React from "react";
-import IntroMessage from "./IntroMessage";
-import ProjectCards from "./ProjectCard";
+import IntroMessage from "../components/IntroMessage";
+import ProjectCards from "../components/ProjectCard";
 
 function ProjectLibrary() {
   return (

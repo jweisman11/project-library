@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { Grid } from "@mui/material";
 
-import PersonCard from "./PersonCard";
+import PersonCard from "../components/PersonCard";
 
 import { Container } from "@mui/system";
 import React from "react";

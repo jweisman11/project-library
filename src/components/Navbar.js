@@ -3,19 +3,13 @@ import { Box } from "@mui/system";
 import Switch from "@mui/material/Switch";
 import { NavLink } from "react-router-dom";
 import React, { useContext } from "react";
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import AuthContext from "../store/AuthContext";
+import Logo from "../assets/DHS_Seal.png";
 
 function Navbar({ darkMode, setDarkMode }) {
-  const authCtx = useContext(AuthContext);
-
   // TODO: Avoid code reptition and use to set active vs inactive styles
-  // let activeStyle = {
-  //   textDecoration: "underline",
-  // };
 
   return (
-    <AppBar position="static">
+    <AppBar sx={{ position: "sticky", pt: 2.8 }}>
       <Toolbar>
         <Box
           sx={{
@@ -25,8 +19,19 @@ function Navbar({ darkMode, setDarkMode }) {
             flexWrap: "nowrap",
           }}
         >
-          <LibraryBooksIcon sx={{ mr: 2 }} />
-          <Typography variant="h6">Mission Solutions Division</Typography>
+          <Box
+            component="img"
+            sx={{
+              height: 50,
+            }}
+            alt="DHS Seal"
+            src={Logo}
+          />
+
+          <Typography sx={{ ml: 2, mt: 0.5 }} variant="h4">
+            {" "}
+            Homeland Intel
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -95,22 +100,6 @@ function Navbar({ darkMode, setDarkMode }) {
               Contact Us
             </NavLink>
           </Typography>
-          {/* <Typography
-            sx={{ mr: 4 }}
-            variant="h6"
-            onClick={() => authCtx.keycloak.logout()}
-          >
-            <NavLink
-              style={({ isActive }) => ({
-                color: isActive ? "orange" : "white",
-                textDecoration: isActive ? "underline" : "none",
-                fontWeight: isActive ? "bold" : "normal",
-              })}
-              to={"/login"}
-            >
-              Logout
-            </NavLink>
-          </Typography> */}
 
           <Switch
             color="secondary"
